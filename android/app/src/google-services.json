@@ -1,111 +1,64 @@
 {
   "project_info": {
-    "project_number": "602842051748",
-    "firebase_url": "https://ziggybites-79bfc-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "ziggybites-79bfc",
-    "storage_bucket": "ziggybites-79bfc.firebasestorage.app"
+    "project_number": "995627895233",
+    "project_id": "trubuy-a1d6c",
+    "storage_bucket": "trubuy-a1d6c.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:602842051748:android:ca8b18fa79a33172726231",
+        "mobilesdk_app_id": "1:995627895233:android:5c2a2de8679b3d3fa14740",
         "android_client_info": {
-          "package_name": "com.ziggybites.delivery"
+          "package_name": "com.trubuy.delivery1"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyASPAqU5aBL9qNwXz4IumXKTAi_zGdQsTU"
+          "current_key": "AIzaSyBmbcxVs-eYLth74L779qX6hnIbxVlT45I"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:602842051748:android:59862acbe16f65f4726231",
+        "mobilesdk_app_id": "1:995627895233:android:ffa141809a29cd1da14740",
         "android_client_info": {
-          "package_name": "com.ziggybites.user"
+          "package_name": "com.trubuy.user1"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "602842051748-td7s8ka4emm022h3gevpdhh9da7lq35k.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.ziggybites.user",
-            "certificate_hash": "f86bca047efc5f6fcf7ce1046af60386c7fe3403"
-          }
-        },
-        {
-          "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyASPAqU5aBL9qNwXz4IumXKTAi_zGdQsTU"
+          "current_key": "AIzaSyBmbcxVs-eYLth74L779qX6hnIbxVlT45I"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:602842051748:android:1adebe133d1cf7ab726231",
+        "mobilesdk_app_id": "1:995627895233:android:bba31d67204df482a14740",
         "android_client_info": {
-          "package_name": "com.ziggybites.vendor"
+          "package_name": "com.trubuy.vendor1"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "602842051748-fmprn44c8kjtp3pg59alaq8q8m2579kh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.ziggybites.vendor",
-            "certificate_hash": "c787211b2a10a8016595f9b46aaef134e0a9f611"
-          }
-        },
-        {
-          "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyASPAqU5aBL9qNwXz4IumXKTAi_zGdQsTU"
+          "current_key": "AIzaSyBmbcxVs-eYLth74L779qX6hnIbxVlT45I"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "602842051748-a7s9mj1afg592ijoahif1nahnvdphtfv.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
