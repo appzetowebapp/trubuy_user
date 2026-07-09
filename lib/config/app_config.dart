@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 /// All settings are documented inline for easy customization.
 class AppConfig {
   // ==================== APP IDENTITY ====================
-  static const String appName = 'ZiggyBites';
+  static const String appName = 'Trubuy';
   static const String appLogoPath = 'assets/images/logo.png';
 
   // ==================== COLORS & THEME ====================
@@ -56,7 +56,7 @@ class AppConfig {
 
   // ==================== WEB URL CONFIGURATION ====================
   // ⚠️ CHANGE THIS URL TO YOUR WEB APPLICATION ⚠️
-  static const String webUrl = 'https://ziggybites.com/';
+  static const String webUrl = 'https://trubuyonline.com/';
 
   static const String notificationIcon =
       '@mipmap/ic_launcher'; // Default app launcher icon
@@ -77,9 +77,9 @@ class AppConfig {
 
   // ==================== API CONFIGURATION ====================
   // Base URL for API endpoints (update this with your actual API base URL)
-  static const String apiBaseUrl = 'https://ziggybites.com/api';
+  static const String apiBaseUrl = 'https://api.trubuyonline.com/';
   static const String fcmTokenUrl =
-      'https://ziggybites.com/api/auth/fcm-token';
+      'https://api.trubuyonline.com/api/fcm-tokens/save';
 //https://api.Mobasket.com/api/notification/user/token
   // ==================== SPLASH SCREEN ====================
   static const int splashDurationSeconds = 2;

@@ -28,23 +28,14 @@ class ApiService {
   /// Returns true if successful, false otherwise
   Future<bool> saveFCMToken({
     required String token,
-    required String phone,
     String? platform,
   }) async {
     try {
       // Determine platform if not provided
       final platformValue = platform ?? (Platform.isAndroid ? 'android' : 'ios');
-
-      // Validate phone number (should be 10 digits)
-      if (phone.length != 10 || !RegExp(r'^\d{10}$').hasMatch(phone)) {
-        debugPrint(
-            '❌ Invalid phone number format. Expected 10 digits, got: $phone');
-        return false;
-      }
       final url = AppConfig.fcmTokenUrl;
-      
       final requestBody = {
-        'fcmToken': token,
+        'token': token,
         'platform': platformValue,
       };
 
