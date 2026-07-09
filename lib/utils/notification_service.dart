@@ -249,7 +249,6 @@ class NotificationService {
   }
 
   Future<bool> saveFCMTokenToBackend({
-    required String phone,
     String? platform,
   }) async {
     try {
@@ -264,7 +263,6 @@ class NotificationService {
       // Save to backend via API service
       final success = await ApiService().saveFCMToken(
         token: token,
-        phone: phone,
         platform: platform,
       );
 

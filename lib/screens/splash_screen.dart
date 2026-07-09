@@ -139,12 +139,11 @@ class _SplashScreenState extends State<SplashScreen>
       body: Stack(
         children: [
           // 1. Deep Navy Gradient Background
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-          ),
-
+         Container(
+  decoration: const BoxDecoration(
+    color: Color(0xFFDEDEDE),
+  ),
+),
           // 2. Animated Floating Soft Glows
           AnimatedBuilder(
             animation: _backgroundController,
@@ -250,17 +249,17 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                         const SizedBox(height: 30),
                         // Typography
-                        const Text(
-                          AppConfig.appName,
-                          style: TextStyle(
-                            fontFamily:
-                                'Inter', // Fallback to default if not available
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 4.0, // Increased spacing
-                            color: Colors.white,
-                          ),
-                        ),
+                        // const Text(
+                        //   AppConfig.appName,
+                        //   style: TextStyle(
+                        //     fontFamily:
+                        //         'Inter', // Fallback to default if not available
+                        //     fontSize: 22,
+                        //     fontWeight: FontWeight.bold,
+                        //     letterSpacing: 4.0, // Increased spacing
+                        //     color: Colors.white,
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
