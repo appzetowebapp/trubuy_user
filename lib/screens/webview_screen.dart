@@ -150,18 +150,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
   /// Save FCM token to backend if phone number is available
   Future<void> _saveFCMTokenIfPhoneAvailable() async {
     try {
-      final phoneNumber = PrefsUtil.getPhoneNumber();
-      if (phoneNumber != null && phoneNumber.isNotEmpty) {
-        debugPrint('📱 Phone number found, saving FCM token to backend...');
-        final success = await NotificationService().saveFCMTokenToBackend(
-          phone: phoneNumber,
-        );
+     
+        final success = await NotificationService().saveFCMTokenToBackend();
         if (success) {
           debugPrint('✅ FCM token saved successfully');
         } else {
           debugPrint('⚠️ Failed to save FCM token');
         }
-      }
+      
     } catch (e) {
       debugPrint('❌ Error saving FCM token: $e');
     }
@@ -649,10 +645,10 @@ class _WebViewScreenState extends State<WebViewScreen> {
           var originalFetch = window.fetch;
           window.fetch = async function(url, options) {
             var urlString = typeof url === 'string' ? url : url.url || url.toString();
-            var isLogin = urlString.includes('/auth/login') || 
-                          urlString.includes('/users/login') ||
-                          urlString.includes('/auth/signup-verify') ||
-                          urlString.includes('/auth/verify-otp');
+            var isLogin = urlString.includes('login') || 
+                          urlString.includes('verify') ||
+                          urlString.includes('signup') ||
+                          urlString.includes('auth');
             
             // Call original fetch
             try {
@@ -692,10 +688,10 @@ class _WebViewScreenState extends State<WebViewScreen> {
             var self = this;
             var url = this._url;
             
-            if (url && (url.includes('/auth/login') || 
-                        url.includes('/users/login') ||
-                        url.includes('/auth/signup-verify') ||
-                        url.includes('/auth/verify-otp'))) {
+            if (url && (url.includes('login') || 
+                         url.includes('verify') ||
+                         url.includes('signup') ||
+                         url.includes('auth'))) {
                this.addEventListener('load', function() {
                   try {
                     var responseBody = self.responseText;
@@ -746,57 +742,14 @@ class _WebViewScreenState extends State<WebViewScreen> {
                 // 1. structure: { "accessToken": "...", "user": { "phone": "..." } }
                 // 2. structure: { "token": "...", "data": { "user": { "phoneNumber": "..." } } }
 
-                String? accessToken = body['accessToken']?.toString();
-                if (accessToken == null && body['token'] != null) {
-                  accessToken = body['token'].toString();
-                }
-                // Check inside data object (new structure)
-                if (accessToken == null &&
-                    body['data'] != null &&
-                    body['data'] is Map) {
-                  accessToken = body['data']['accessToken']?.toString();
-                }
+                final String? accessToken = body['data']['accessToken']?.toString();
 
                 if (accessToken != null && accessToken.isNotEmpty) {
                   debugPrint(
                       '✅ Found Access Token: ${accessToken.substring(0, 15)}...');
 
-                  // Save Access Token
                   await PrefsUtil.setAccessToken(accessToken);
 
-                  // Extract User Phone
-                  String? phone;
-
-                  // Check user object at root
-                  if (body['user'] != null && body['user'] is Map) {
-                    phone = body['user']['phone']?.toString() ??
-                        body['user']['phoneNumber']?.toString();
-                  }
-
-                  // Check user inside data object
-                  if (phone == null &&
-                      body['data'] != null &&
-                      body['data'] is Map) {
-                    final dataObj = body['data'];
-                    if (dataObj['user'] != null && dataObj['user'] is Map) {
-                      phone = dataObj['user']['phoneNumber']?.toString() ??
-                          dataObj['user']['phone']?.toString();
-                    }
-                  }
-
-                  if (phone != null) {
-                    debugPrint('📱 Found Phone Number: $phone');
-                    // Clean phone number
-                    String cleanedPhone =
-                        phone.replaceAll(RegExp(r'[^\d]'), '');
-                    if (cleanedPhone.length > 10 &&
-                        cleanedPhone.startsWith('91')) {
-                      cleanedPhone = cleanedPhone.substring(2);
-                    }
-                    await PrefsUtil.setPhoneNumber(cleanedPhone);
-                  }
-
-                  // Trigger FCM Token Save
                   await _saveFCMTokenIfPhoneAvailable();
                 }
               }
